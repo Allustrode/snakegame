@@ -1,0 +1,274 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: system-ui;
+    user-select: none;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    background: radial-gradient(rgb(95, 133, 5),rgb(0, 0, 0));
+    justify-content: center;
+    align-items: center;
+}
+#scorebox,#hiscorebox{
+    position: absolute;
+    top: 4rem;
+    left: 6rem;
+    color: rgb(211, 211, 211);
+    font-weight: 600;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+}
+#hiscorebox{
+    top:7rem;
+    color: rgb(150, 150, 150);
+}
+
+#board{
+    position: absolute;
+    width: 90vmin;
+    height: 90vmin;
+    display: grid;
+    grid-template-rows: repeat(30,1fr);
+    grid-template-columns: repeat(30,1fr);
+    box-shadow: inset 0 0 10px rgb(172, 175, 0);
+    border: 2px solid rgb(172, 175, 0);
+    background-color: black;
+}
+.play_btn{
+    position: static;
+    height: 12vmin;
+    width: 12vmin;
+    border: none;
+    background-color: rgb(95, 133, 5);
+    visibility: hidden;
+}
+#start_btn:active,.play_btn:active,#start_btn:hover,.play_btn:hover{
+    opacity: .9;
+}
+#btn_up_l{
+    top: 60%;
+    left: 0%;
+    clip-path: polygon(100% 100%, 0% 100%, 50% 20%);
+    transform: translate(20%,-50%);
+}
+#btn_down_l{
+    bottom: 0;
+    left: 0%;
+    clip-path: polygon(50% 80%, 0% 0%, 100% 0%);
+    transform: translate(20%,-50%);
+}
+#btn_left{
+    top: 80%;
+    left: 0%;
+    clip-path: polygon(20% 50%, 100% 0%, 100% 100%);
+    transform: translate(0%,-100%);
+}
+
+#btn_up_r{
+    top: 60%;
+    left: 100%;
+    clip-path: polygon(100% 100%, 0% 100%, 50% 20%);
+    transform: translate(-120%,-50%);
+}
+#btn_down_r{
+    bottom: 0;
+    left: 100%;
+    clip-path: polygon(50% 80%, 0% 0%, 100% 0%);
+    transform: translate(-120%,-50%);
+}
+#btn_right{
+    top: 80%;
+    left: 100%;
+    clip-path: polygon(80% 50%, 0% 0%, 0% 100%);
+    transform: translate(-100%,-100%);
+}
+
+#popup_box{
+    position: absolute;
+    height: auto;
+    min-width: 30vmin;
+    text-align: center;
+    top: 40%;
+    left: 50%;
+    text-transform: uppercase;
+    letter-spacing: .6em;
+    font-style: oblique;
+    transform: translate(-50%,-50%);
+    color: rgb(75, 206, 58);
+    transition: .5s;
+    opacity: 0;
+}
+
+#start_btn{
+    position: absolute;
+    min-height: 10vmin;
+    min-width: 50vmin;
+    border: none;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    letter-spacing: .4rem;
+    color: rgb(190, 190, 190);
+    background: rgb(95, 133, 5);
+}
+.snake{
+    background-color: rgb(165, 184, 0);
+    border-radius: 50%;
+    transform: scale(.8);
+}
+
+.head{
+    transform: rotate(0deg);
+    background-color: rgb(231, 235, 0);
+    clip-path: polygon(50% 59%, 80% 10%, 100% 37%, 96% 68%, 80% 90%, 50% 100%, 20% 90%, 5% 69%, 0 38%, 20% 10%);
+}
+.down{
+    transform: rotate(180deg);;
+}
+.left{
+    transform: rotate(-90deg);
+}
+.right{
+    transform: rotate(90deg);
+}
+.food{
+    background-color: rgb(43, 255, 0);
+    border-radius: 50%;
+    box-shadow: 0px 0px 25px 8px rgb(43, 255, 0);
+    transform: scale(.3);
+}
+
+
+@media (min-width:534px) and (max-width:1100px) {
+    #scorebox{
+        top:0;
+        left: 40%;
+        transform: translateX(-50%);
+        font-size: 1rem;
+        padding: .3rem;
+    }
+    #hiscorebox{
+        top: 0;
+        left: 60%;
+        transform: translateX(-50%);
+        font-size: 1rem;
+        padding: .3rem;
+    }
+    .play_btn{
+        position: absolute;
+        height: 9vmin;
+        width: 9vmin;
+        visibility: visible;
+    }
+}
+
+
+
+@media (min-width:380px) and (max-width:533px){
+    #scorebox{
+        top: 0%;
+        left: 30%;
+        transform: translateX(-50%);
+        font-size: 1rem;
+    }
+    #hiscorebox{
+        top: 0%;
+        left: 70%;
+        transform: translateX(-50%);
+        font-size: 1rem;
+    }
+    .play_btn{
+        position: absolute;
+        height: 4vmin;
+        width: 4vmin;
+        visibility: visible;
+    }
+    #start_btn{
+        font-size: 1rem;
+        letter-spacing: .3rem;
+    }
+    
+}
+@media (max-width:380px){
+    #scorebox{
+        top:0;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1rem;
+    }
+    #hiscorebox{
+        top: 2.4rem;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1rem;
+    }
+    .play_btn{
+        position: absolute;
+        height: 4vmin;
+        width: 4vmin;
+        visibility: visible;
+    }
+    #start_btn{
+        font-size: 1rem;
+        letter-spacing: .2rem;
+    }
+    #popup_box{
+        font-size: .8rem;
+        letter-spacing: .2rem;
+    }
+}
+@media (max-width:320px){
+    #scorebox,#hiscorebox{
+        font-size: .9rem;
+        letter-spacing: .1rem;
+    }
+    #start_btn{
+        font-size: .8rem;
+        letter-spacing: .2rem;
+    }
+    .play_btn{
+        position: absolute;
+        height: 6vmin;
+        width: 6vmin;
+        visibility: visible;
+    }
+    #btn_up_l{
+        top: 86%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    #btn_down_l{
+        bottom: 0;
+        left: 50%;
+        clip-path: polygon(50% 80%, 0% 0%, 100% 0%);
+        transform: translate(-50%,-50%);
+    }
+    #btn_left{
+        top: 93%;
+        left: 36%;
+        clip-path: polygon(20% 50%, 100% 0%, 100% 100%);
+        transform: translate(0%,-100%);
+    }
+    
+    #btn_up_r{
+        top: 86%;
+        left: 50%;
+        clip-path: polygon(100% 100%, 0% 100%, 50% 20%);
+        transform: translate(-50%,-50%);
+    }
+    #btn_down_r{
+        bottom: 0;
+        left: 50%;
+        clip-path: polygon(50% 80%, 0% 0%, 100% 0%);
+        transform: translate(-50%,-50%);
+    }
+    #btn_right{
+        top: 93%;
+        left: 64%;
+        clip-path: polygon(80% 50%, 0% 0%, 0% 100%);
+        transform: translate(-100%,-100%);
+    }
+}
