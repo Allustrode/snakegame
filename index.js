@@ -8,13 +8,20 @@ let score = 0;
 let snakeArr = [{ x: 13, y: 22 }];
 let food = { x: 7, y: 10 };
 
+const eat = new Audio("./sound/eat.wav");
+const hit = new Audio("./sound/hit.wav");
+const click = new Audio("./sound/click.wav");
+const move = new Audio("./sound/move.wav");
+click.playbackRate = 3;
 // Game functions// 
-
-function speedup(){
+// let x=1;
+function speedup() {
     speed += 1;
+    // x+=.3;
     // alert("rtdujh");
+    // hit.playbackRate = x;
     document.getElementById("popup_box").style.opacity = "1";
-    setTimeout(()=>{
+    setTimeout(() => {
         document.getElementById("popup_box").style.opacity = "0";
     }, 1500);
 }
@@ -49,10 +56,11 @@ function gameEngine() {
     if (snakeArr[0].x === food.x && snakeArr[0].y === food.y) {
         let a = 1;
         let b = 30;
+        eat.play();
         for (let i = 0; i < snakeArr.length; i++) {
             let foodx = Math.round(a + (b - a) * Math.random());
             let foody = Math.round(a + (b - a) * Math.random());
-            if ( foodx === snakeArr[i].x || foody === snakeArr[i].y) {
+            if (foodx === snakeArr[i].x && foody === snakeArr[i].y) {
                 i = 0;
                 continue;
             }
@@ -68,7 +76,6 @@ function gameEngine() {
     }
 
 
-    
     //update the snake array
     //moving the sanake
     for (let i = snakeArr.length - 2; i >= 0; i--) {
@@ -76,9 +83,10 @@ function gameEngine() {
     }
     snakeArr[0].x += inputDir.x;
     snakeArr[0].y += inputDir.y;
-    
+
     if (isCollide(snakeArr)) {
         collide = true;
+        hit.play();
         clearInterval(myspeed);
         inputDir = { x: 0, y: 0 };
         document.getElementById('start_btn').innerHTML = 'Start again';
@@ -112,7 +120,7 @@ function gameEngine() {
         }
         board.appendChild(snakeElement);
     });
-    
+
     //display the food
     foodElement = document.createElement("div");
     foodElement.style.gridRowStart = food.y;
@@ -133,11 +141,13 @@ function gameEngine() {
 
 function start() {
     collide = false;
+    // x=1;
+    click.play();
     score = 0;
     scorebox.innerHTML = "score = " + score;
 
-    myspeed = setInterval(speedup , 20000);
-    
+    myspeed = setInterval(speedup, 20000);
+
     document.getElementById('start_btn').style.display = 'none';
 
     window.requestAnimationFrame(main);
@@ -152,6 +162,7 @@ function start() {
             }
             inputDir.x = 0;
             inputDir.y = -1;
+            click.play();
         }
         if (e.key === 'ArrowRight') {
             if (inputDir.x === -1) {
@@ -159,6 +170,7 @@ function start() {
             }
             inputDir.x = 1;
             inputDir.y = 0;
+            click.play();
         }
         if (e.key === 'ArrowDown') {
             if (inputDir.y === -1) {
@@ -166,6 +178,7 @@ function start() {
             }
             inputDir.x = 0;
             inputDir.y = 1;
+            click.play();
         }
         if (e.key === 'ArrowLeft') {
             if (inputDir.x === 1) {
@@ -173,6 +186,7 @@ function start() {
             }
             inputDir.x = -1;
             inputDir.y = 0;
+            click.play();
         }
     });
 }
@@ -195,6 +209,7 @@ function fun(x) {
         }
         inputDir.x = 0;
         inputDir.y = -1;
+        click.play();
     }
     else if (x === 'r') {
         if (inputDir.x === -1) {
@@ -202,6 +217,7 @@ function fun(x) {
         }
         inputDir.x = 1;
         inputDir.y = 0;
+        click.play();
     }
     else if (x === 'd') {
         if (inputDir.y === -1) {
@@ -209,6 +225,7 @@ function fun(x) {
         }
         inputDir.x = 0;
         inputDir.y = 1;
+        click.play();
     }
     else if (x === 'l') {
         if (inputDir.x === 1) {
@@ -216,5 +233,6 @@ function fun(x) {
         }
         inputDir.x = -1;
         inputDir.y = 0;
+        click.play();
     }
 }
