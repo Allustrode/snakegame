@@ -3,7 +3,7 @@ let inputDir = { x: 0, y: 0 };
 let lastPaintTime = 0;
 let collide = false;
 var myspeed;
-let speed = 3;
+let speed = 2;
 let score = 0;
 let snakeArr = [{ x: 13, y: 22 }];
 let food = { x: 7, y: 10 };
@@ -11,19 +11,24 @@ let food = { x: 7, y: 10 };
 const eat = new Audio("./sound/eat.wav");
 const hit = new Audio("./sound/hit.wav");
 const click = new Audio("./sound/click.wav");
-const move = new Audio("./sound/move.wav");
+const startclick = new Audio("./sound/startclick.wav");
+const speedsound = new Audio("./sound/speedsound.wav");
 click.playbackRate = 3;
+speedsound.playbackRate = .5;
+startclick.playbackRate = 2;
 // Game functions// 
 // let x=1;
+
 function speedup() {
     speed += 1;
     // x+=.3;
     // alert("rtdujh");
     // hit.playbackRate = x;
+    speedsound.play();
     document.getElementById("popup_box").style.opacity = "1";
     setTimeout(() => {
         document.getElementById("popup_box").style.opacity = "0";
-    }, 1500);
+    }, 1300);
 }
 
 function main(cTime) {
@@ -91,8 +96,11 @@ function gameEngine() {
         inputDir = { x: 0, y: 0 };
         document.getElementById('start_btn').innerHTML = 'Start again';
         document.getElementById('start_btn').style.backgroundColor = 'rgb(153,0,0)';
-        document.getElementById('start_btn').style.display = '';
-        speed = 3;
+        document.getElementById('start_btn').style.opacity = '1';
+        setTimeout(() => {
+            document.getElementById("start_btn").style.display = "";
+        }, 400);
+        speed = 2;
         snakeArr = [{ x: 13, y: 22 }];
         return;
     }
@@ -142,14 +150,16 @@ function gameEngine() {
 function start() {
     collide = false;
     // x=1;
-    click.play();
+    startclick.play();
     score = 0;
     scorebox.innerHTML = "score = " + score;
 
     myspeed = setInterval(speedup, 20000);
 
-    document.getElementById('start_btn').style.display = 'none';
-
+    document.getElementById('start_btn').style.opacity = '0';
+    setTimeout(() => {
+        document.getElementById("start_btn").style.display = "none";
+    }, 400);
     window.requestAnimationFrame(main);
 
     inputDir = { x: 0, y: -1 };

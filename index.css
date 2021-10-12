@@ -43,11 +43,12 @@ body{
     height: 12vmin;
     width: 12vmin;
     border: none;
+    padding: 1vmin;
     background-color: rgb(95, 133, 5);
     visibility: hidden;
 }
 #start_btn:active,.play_btn:active,#start_btn:hover,.play_btn:hover{
-    opacity: .9;
+    opacity: .8;
 }
 #btn_up_l{
     top: 60%;
@@ -113,6 +114,8 @@ body{
     letter-spacing: .4rem;
     color: rgb(190, 190, 190);
     background: rgb(95, 133, 5);
+    opacity: 1;
+    transition: .3s;
 }
 .snake{
     background-color: rgb(165, 184, 0);
@@ -121,18 +124,18 @@ body{
 }
 
 .head{
-    transform: rotate(0deg);
+    transform: rotate(0deg) scale(.9);
     background-color: rgb(231, 235, 0);
     clip-path: polygon(50% 59%, 80% 10%, 100% 37%, 96% 68%, 80% 90%, 50% 100%, 20% 90%, 5% 69%, 0 38%, 20% 10%);
 }
 .down{
-    transform: rotate(180deg);;
+    transform: rotate(180deg) scale(.9);
 }
 .left{
-    transform: rotate(-90deg);
+    transform: rotate(-90deg) scale(.9);
 }
 .right{
-    transform: rotate(90deg);
+    transform: rotate(90deg) scale(.9);
 }
 .food{
     background-color: rgb(43, 255, 0);
@@ -207,8 +210,8 @@ body{
     }
     .play_btn{
         position: absolute;
-        height: 7vmin;
-        width: 7vmin;
+        height: 10vmin;
+        width: 10vmin;
         visibility: visible;
     }
     #start_btn{
@@ -220,7 +223,7 @@ body{
         letter-spacing: .2rem;
     }
     #btn_up_l{
-        top: 86%;
+        top: 82%;
         left: 50%;
         transform: translate(-50%,-50%);
     }
@@ -231,14 +234,14 @@ body{
         transform: translate(-50%,-50%);
     }
     #btn_left{
-        top: 93%;
-        left: 36%;
+        top: 91%;
+        left: 32%;
         clip-path: polygon(20% 50%, 100% 0%, 100% 100%);
         transform: translate(0%,-100%);
     }
     
     #btn_up_r{
-        top: 86%;
+        top: 82%;
         left: 50%;
         clip-path: polygon(100% 100%, 0% 100%, 50% 20%);
         transform: translate(-50%,-50%);
@@ -250,8 +253,8 @@ body{
         transform: translate(-50%,-50%);
     }
     #btn_right{
-        top: 93%;
-        left: 64%;
+        top: 91%;
+        left: 68%;
         clip-path: polygon(80% 50%, 0% 0%, 0% 100%);
         transform: translate(-100%,-100%);
     }
@@ -267,12 +270,12 @@ body{
     }
     .play_btn{
         position: absolute;
-        height: 6vmin;
-        width: 6vmin;
+        height: 9vmin;
+        width: 9vmin;
         visibility: visible;
     }
     #btn_up_l{
-        top: 86%;
+        top: 82%;
         left: 50%;
         transform: translate(-50%,-50%);
     }
@@ -283,14 +286,14 @@ body{
         transform: translate(-50%,-50%);
     }
     #btn_left{
-        top: 93%;
-        left: 36%;
+        top: 91%;
+        left: 32%;
         clip-path: polygon(20% 50%, 100% 0%, 100% 100%);
         transform: translate(0%,-100%);
     }
     
     #btn_up_r{
-        top: 86%;
+        top: 82%;
         left: 50%;
         clip-path: polygon(100% 100%, 0% 100%, 50% 20%);
         transform: translate(-50%,-50%);
@@ -302,8 +305,8 @@ body{
         transform: translate(-50%,-50%);
     }
     #btn_right{
-        top: 93%;
-        left: 64%;
+        top: 91%;
+        left: 68%;
         clip-path: polygon(80% 50%, 0% 0%, 0% 100%);
         transform: translate(-100%,-100%);
     }
