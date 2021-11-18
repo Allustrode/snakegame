@@ -11,20 +11,22 @@
 </head>
 
 <body>
-    <div id="scorebox">Score = 0</div>
-    <div id="hiscorebox"> Hi score = 0</div>
-    <div id="board">
+    <div id="scorediv">
+        <div id="scorebox">Score = 0</div>
+        <div id="hiscorebox"> Hi score = 0</div>
     </div>
+    <div id="board"></div>
     <div id="popup_box"><p>Level up</p></div>
     <button id="start_btn" onclick="start()">Start</button>
 
-    
-    <button class="play_btn" onclick="fun('u')" id="btn_up_l"></button>
-    <button class="play_btn" onclick="fun('u')" id="btn_up_r"></button>
-    <button class="play_btn" onclick="fun('r')" id="btn_right"></button>
-    <button class="play_btn" onclick="fun('d')" id="btn_down_l"></button>
-    <button class="play_btn" onclick="fun('d')" id="btn_down_r"></button>
-    <button class="play_btn" onclick="fun('l')" id="btn_left"></button>
+    <div id="playb_box">
+        <button class="play_btn" onclick="fun('u')" id="btn_up_l"></button>
+        <button class="play_btn" onclick="fun('u')" id="btn_up_r"></button>
+        <button class="play_btn" onclick="fun('r')" id="btn_right"></button>
+        <button class="play_btn" onclick="fun('d')" id="btn_down_l"></button>
+        <button class="play_btn" onclick="fun('d')" id="btn_down_r"></button>
+        <button class="play_btn" onclick="fun('l')" id="btn_left"></button>
+    </div>
     <script src="index.js"></script>
 </body>
 
