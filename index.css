@@ -53,7 +53,9 @@ body{
     width: 12vmin;
     border: none;
     padding: 1vmin;
-    background-color: rgb(10, 177, 65);
+    /* border: 3px solid black; */
+    background-color: rgb(0, 119, 40);
+    box-shadow: inset 0px 0px 30px rgb(0, 63, 16);
     visibility: hidden;
 }
 #start_btn:hover,.play_btn:hover{
