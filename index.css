@@ -9,7 +9,7 @@ body{
     height: 100vh;
     width: 100vw;
     display: flex;
-    background: radial-gradient(rgb(95, 133, 5),rgb(0, 0, 0));
+    background: radial-gradient( rgb(9, 223, 80), rgb(0, 0, 0));
     justify-content: center;
     align-items: center;
 }
@@ -34,8 +34,8 @@ body{
     display: grid;
     grid-template-rows: repeat(30,1fr);
     grid-template-columns: repeat(30,1fr);
-    box-shadow: inset 0 0 10px rgb(172, 175, 0);
-    border: 2px solid rgb(172, 175, 0);
+    box-shadow: inset 0 0 10px rgb(0, 139, 19);
+    border: 2px solid rgb(0, 122, 0);
     background-color: black;
 }
 .play_btn{
@@ -44,11 +44,11 @@ body{
     width: 12vmin;
     border: none;
     padding: 1vmin;
-    background-color: rgb(95, 133, 5);
+    background-color: rgb(10, 177, 65);
     visibility: hidden;
 }
-#start_btn:active,.play_btn:active,#start_btn:hover,.play_btn:hover{
-    opacity: .8;
+#start_btn:hover,.play_btn:hover{
+    opacity: .7;
 }
 #btn_up_l{
     top: 60%;
@@ -99,7 +99,7 @@ body{
     letter-spacing: .6em;
     font-style: oblique;
     transform: translate(-50%,-50%);
-    color: rgb(75, 206, 58);
+    color: rgb(173, 255, 162);
     transition: .5s;
     opacity: 0;
 }
@@ -112,20 +112,20 @@ body{
     text-transform: uppercase;
     font-size: 1.4rem;
     letter-spacing: .4rem;
-    color: rgb(190, 190, 190);
-    background: rgb(95, 133, 5);
+    color: rgb(255, 255, 255);
+    background: rgb(13, 161, 8);
     opacity: 1;
     transition: .3s;
 }
 .snake{
-    background-color: rgb(165, 184, 0);
+    background-color: rgb(171, 173, 0);
     border-radius: 50%;
     transform: scale(.8);
 }
 
 .head{
     transform: rotate(0deg) scale(.9);
-    background-color: rgb(231, 235, 0);
+    background-color: rgb(196, 218, 0);
     clip-path: polygon(50% 59%, 80% 10%, 100% 37%, 96% 68%, 80% 90%, 50% 100%, 20% 90%, 5% 69%, 0 38%, 20% 10%);
 }
 .down{
@@ -202,6 +202,7 @@ body{
         transform: translateX(-50%);
         font-size: 1rem;
     }
+    
     #hiscorebox{
         top: 8%;
         left: 50%;
@@ -210,8 +211,8 @@ body{
     }
     .play_btn{
         position: absolute;
-        height: 10vmin;
-        width: 10vmin;
+        height: 12vmin;
+        width: 12vmin;
         visibility: visible;
     }
     #start_btn{
@@ -264,18 +265,30 @@ body{
         font-size: .9rem;
         letter-spacing: .1rem;
     }
+    #board{
+        /* position: absolute;
+        width: 90vmin;
+        height: 90vmin;
+        display: grid;
+        grid-template-rows: repeat(30,1fr);
+        grid-template-columns: repeat(30,1fr);
+        box-shadow: inset 0 0 10px rgb(0, 139, 19);
+        border: 2px solid rgb(0, 122, 0);
+        background-color: black; */
+        transform: translateY(-20%);
+    }
     #start_btn{
         font-size: .8rem;
         letter-spacing: .2rem;
     }
     .play_btn{
         position: absolute;
-        height: 9vmin;
-        width: 9vmin;
+        height: 13vmin;
+        width: 13vmin;
         visibility: visible;
     }
     #btn_up_l{
-        top: 82%;
+        top: 76%;
         left: 50%;
         transform: translate(-50%,-50%);
     }
@@ -286,14 +299,14 @@ body{
         transform: translate(-50%,-50%);
     }
     #btn_left{
-        top: 91%;
-        left: 32%;
+        top: 88%;
+        left: 28%;
         clip-path: polygon(20% 50%, 100% 0%, 100% 100%);
         transform: translate(0%,-100%);
     }
     
     #btn_up_r{
-        top: 82%;
+        top: 76%;
         left: 50%;
         clip-path: polygon(100% 100%, 0% 100%, 50% 20%);
         transform: translate(-50%,-50%);
@@ -305,8 +318,8 @@ body{
         transform: translate(-50%,-50%);
     }
     #btn_right{
-        top: 91%;
-        left: 68%;
+        top: 88%;
+        left: 72%;
         clip-path: polygon(80% 50%, 0% 0%, 0% 100%);
         transform: translate(-100%,-100%);
     }
