@@ -3,7 +3,7 @@ let inputDir = { x: 0, y: 0 };
 let lastPaintTime = 0;
 let collide = false;
 var myspeed;
-let speed = 2;
+let speed = 3;
 let score = 0;
 let snakeArr = [{ x: 13, y: 22 }];
 let food = { x: 7, y: 10 };
@@ -13,22 +13,28 @@ const hit = new Audio("./sound/hit.wav");
 const click = new Audio("./sound/click.wav");
 const startclick = new Audio("./sound/startclick.wav");
 const speedsound = new Audio("./sound/speedsound.wav");
+const bgmusic = new Audio("./sound/bgmusic.mp3");
 click.playbackRate = 3;
 speedsound.playbackRate = .5;
 startclick.playbackRate = 2;
-// Game functions// 
-// let x=1;
 
+
+// Game functions// 
 function speedup() {
-    speed += 1;
-    // x+=.3;
-    // alert("rtdujh");
-    // hit.playbackRate = x;
-    speedsound.play();
-    document.getElementById("popup_box").style.opacity = "1";
-    setTimeout(() => {
-        document.getElementById("popup_box").style.opacity = "0";
-    }, 1300);
+    if (speed < 10) {
+        speed += 1;
+        speedsound.play();
+        if(speed == 10){
+            document.getElementById("popup_box").innerText = "yeah! MAX LEVEL";
+            document.getElementById("popup_box").style.opacity = "1";
+        }
+        else{    
+            document.getElementById("popup_box").style.opacity = "1";
+        }
+        setTimeout(() => {
+            document.getElementById("popup_box").style.opacity = "0";
+        }, 1500);
+    }
 }
 
 function main(cTime) {
@@ -92,6 +98,7 @@ function gameEngine() {
     if (isCollide(snakeArr)) {
         collide = true;
         hit.play();
+        bgmusic.pause();
         clearInterval(myspeed);
         inputDir = { x: 0, y: 0 };
         document.getElementById('start_btn').innerHTML = 'Start again';
@@ -100,7 +107,7 @@ function gameEngine() {
         setTimeout(() => {
             document.getElementById("start_btn").style.display = "";
         }, 400);
-        speed = 2;
+        speed = 3;
         snakeArr = [{ x: 13, y: 22 }];
         return;
     }
@@ -149,8 +156,9 @@ function gameEngine() {
 
 function start() {
     collide = false;
-    // x=1;
+
     startclick.play();
+
     score = 0;
     scorebox.innerHTML = "score = " + score;
 
