@@ -8,28 +8,36 @@
 body{
     height: 100vh;
     width: 100vw;
-    display: flex;
     background: linear-gradient(45deg, rgb(41, 36, 46),rgb(11, 0, 37));
     background-size: .6rem .6rem;
-    justify-content: center;
+}
+#scorediv{
+    height: max-content;
+    padding: 1rem;
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
     align-items: center;
 }
 #scorebox,#hiscorebox{
-    position: absolute;
-    top: 4rem;
-    left: 6rem;
     color: rgb(211, 211, 211);
     font-weight: 600;
-    font-size: 1.6rem;
     text-transform: uppercase;
 }
 #hiscorebox{
     top:7rem;
-    color: rgb(150, 150, 150);
+    color: rgb(0, 189, 25);
 }
-
+#board_cont{
+    height: max-content;
+    width: 100vw;
+    padding: 1rem 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 #board{
-    position: absolute;
     width: 90vmin;
     height: 90vmin;
     display: grid;
@@ -41,54 +49,49 @@ body{
     border: 2px solid rgb(199, 0, 0);
     background-color: rgb(0, 0, 0);
 }
+#playb_box{
+    height: 10rem;
+    width: 10rem;
+    position: relative;
+    margin-top: 2rem;
+    border-radius: 2rem;
+    background: rgba(65, 65, 65, 0.5);
+}
 .play_btn{
-    position: static;
-    height: 12vmin;
-    width: 12vmin;
+    position: absolute;
+    height: 3rem;
+    width: 3rem;
     border: none;
     padding: 1vmin;
     background: rgb(204, 207, 0);
-    visibility: hidden;
+    visibility: visible;
 }
 #start_btn:hover,.play_btn:hover{
     opacity: .7;
 }
-#btn_up_l{
-    top: 60%;
-    left: 0%;
+#btn_up{
+    top: 0%;
+    left: 50%;
     clip-path: polygon(100% 100%, 0% 100%, 50% 20%);
-    transform: translate(20%,-50%);
-}
-#btn_down_l{
-    bottom: 0;
-    left: 0%;
-    clip-path: polygon(50% 80%, 0% 0%, 100% 0%);
-    transform: translate(20%,-50%);
-}
-#btn_left{
-    top: 80%;
-    left: 0%;
-    clip-path: polygon(20% 50%, 100% 0%, 100% 100%);
-    transform: translate(0%,-100%);
-}
-
-#btn_up_r{
-    top: 60%;
-    left: 100%;
-    clip-path: polygon(100% 100%, 0% 100%, 50% 20%);
-    transform: translate(-120%,-50%);
-}
-#btn_down_r{
-    bottom: 0;
-    left: 100%;
-    clip-path: polygon(50% 80%, 0% 0%, 100% 0%);
-    transform: translate(-120%,-50%);
+    transform: translate(-50%,0%);
 }
 #btn_right{
-    top: 80%;
+    top: 50%;
     left: 100%;
     clip-path: polygon(80% 50%, 0% 0%, 0% 100%);
-    transform: translate(-100%,-100%);
+    transform: translate(-100%,-50%);
+}
+#btn_down{
+    bottom: 0%;
+    left: 50%;
+    clip-path: polygon(50% 80%, 0% 0%, 100% 0%);
+    transform: translate(-50%,0%);
+}
+#btn_left{
+    top: 50%;
+    left: 0%;
+    clip-path: polygon(20% 50%, 100% 0%, 100% 100%);
+    transform: translate(0%,-50%);
 }
 
 #popup_box{
@@ -96,7 +99,7 @@ body{
     height: auto;
     min-width: 30vmin;
     text-align: center;
-    top: 40%;
+    top: 30%;
     left: 50%;
     text-transform: uppercase;
     letter-spacing: .6em;
@@ -112,9 +115,11 @@ body{
     min-height: 10vmin;
     min-width: 50vmin;
     border: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     text-transform: uppercase;
-    font-size: 1.4rem;
-    letter-spacing: .4rem;
+    font-size: 1rem;
     color: rgb(255, 255, 255);
     background: transparent;
     border: 2px solid rgb(204, 207, 0);
@@ -151,173 +156,38 @@ body{
 }
 
 
-@media (min-width:534px) and (max-width:1100px) {
-    #scorebox{
-        top:0;
-        left: 40%;
-        transform: translateX(-50%);
-        font-size: 1rem;
-        padding: .3rem;
-    }
-    #hiscorebox{
-        top: 0;
-        left: 60%;
-        transform: translateX(-50%);
-        font-size: 1rem;
-        padding: .3rem;
-    }
-    .play_btn{
-        position: absolute;
-        height: 9vmin;
-        width: 9vmin;
-        visibility: visible;
-    }
-}
-
-
-
-@media (min-width:425px) and (max-width:533px){
-    #scorebox{
-        top: 6%;
-        left: 30%;
-        transform: translateX(-50%);
-        font-size: 1rem;
-    }
-    #hiscorebox{
-        top: 6%;
-        left: 70%;
-        transform: translateX(-50%);
-        font-size: 1rem;
-    }
-    .play_btn{
-        position: absolute;
-        height: 4vmin;
-        width: 4vmin;
-        visibility: visible;
-    }
-    #start_btn{
-        font-size: 1rem;
-        letter-spacing: .3rem;
-    }
-    
-}
-@media (max-width:425px){
-    #scorebox{
-        top:4%;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 1rem;
-    }
-    
-    #hiscorebox{
-        top: 8%;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 1rem;
-    }
-    .play_btn{
-        position: absolute;
-        height: 12vmin;
-        width: 12vmin;
-        visibility: visible;
-    }
-    #start_btn{
-        font-size: 1rem;
-        letter-spacing: .2rem;
+@media (min-width:768px) and (max-width:1023px) {
+    #board_cont{
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
     }
     #popup_box{
-        font-size: .8rem;
-        letter-spacing: .2rem;
-    }
-    #btn_up_l{
-        top: 82%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-    }
-    #btn_down_l{
-        bottom: 0;
-        left: 50%;
-        clip-path: polygon(50% 80%, 0% 0%, 100% 0%);
-        transform: translate(-50%,-50%);
-    }
-    #btn_left{
-        top: 91%;
+        top: 30%;
         left: 32%;
-        clip-path: polygon(20% 50%, 100% 0%, 100% 100%);
-        transform: translate(0%,-100%);
-    }
-    
-    #btn_up_r{
-        top: 82%;
-        left: 50%;
-        clip-path: polygon(100% 100%, 0% 100%, 50% 20%);
         transform: translate(-50%,-50%);
-    }
-    #btn_down_r{
-        bottom: 0;
-        left: 50%;
-        clip-path: polygon(50% 80%, 0% 0%, 100% 0%);
-        transform: translate(-50%,-50%);
-    }
-    #btn_right{
-        top: 91%;
-        left: 68%;
-        clip-path: polygon(80% 50%, 0% 0%, 0% 100%);
-        transform: translate(-100%,-100%);
-    }
-}
-@media (max-width:320px){
-    #scorebox,#hiscorebox{
-        font-size: .9rem;
-        letter-spacing: .1rem;
-    }
-    #board{
-        transform: translateY(-20%);
     }
     #start_btn{
-        font-size: .8rem;
-        letter-spacing: .2rem;
+        top: 50%;
+        left: 32%;
+        transform: translate(-50%,-50%);
     }
-    .play_btn{
+    #board{
+        width: 70vmin;
+        height: 70vmin;
+    }
+}
+@media (min-width:1024px){
+    #playb_box{
+        display: none;
+    }
+    #scorediv{
+        width: max-content;
+        flex-direction: column;
         position: absolute;
-        height: 13vmin;
-        width: 13vmin;
-        visibility: visible;
-    }
-    #btn_up_l{
-        top: 76%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-    }
-    #btn_down_l{
-        bottom: 0;
-        left: 50%;
-        clip-path: polygon(50% 80%, 0% 0%, 100% 0%);
-        transform: translate(-50%,-50%);
-    }
-    #btn_left{
-        top: 88%;
-        left: 28%;
-        clip-path: polygon(20% 50%, 100% 0%, 100% 100%);
-        transform: translate(0%,-100%);
-    }
-    
-    #btn_up_r{
-        top: 76%;
-        left: 50%;
-        clip-path: polygon(100% 100%, 0% 100%, 50% 20%);
-        transform: translate(-50%,-50%);
-    }
-    #btn_down_r{
-        bottom: 0;
-        left: 50%;
-        clip-path: polygon(50% 80%, 0% 0%, 100% 0%);
-        transform: translate(-50%,-50%);
-    }
-    #btn_right{
-        top: 88%;
-        left: 72%;
-        clip-path: polygon(80% 50%, 0% 0%, 0% 100%);
-        transform: translate(-100%,-100%);
+        top: 2rem;
+        font-size: 1.4rem;
+        left: 4rem;
+        padding: 2%;
     }
 }
